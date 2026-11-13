@@ -1,0 +1,36 @@
+/* Design tokens — sumber: DESAIN.md bagian 5.
+   Komponen hanya boleh memakai variabel di sini, bukan kode warna langsung. */
+:root {
+  /* Warna */
+  --bg: #FFFFFF;
+  --surface: #F5F6F8;
+  --text: #1F2937;
+  --muted: #6B7280;
+  --border: #D1D5DB;
+  --accent: #2563EB;       /* satu-satunya warna aksen */
+  --on-accent: #FFFFFF;    /* teks di atas warna aksen */
+  --ok: #15803D;           /* status benar / selesai */
+  --err: #B91C1C;          /* status belum tepat / galat */
+  --highlight: #FEF3C7;    /* sorotan angka yang baru muncul */
+
+  /* Tipografi */
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-body: 18px;
+  --fs-title: 22px;
+  --fs-small: 16px;
+  --lh: 1.5;
+
+  /* Jarak (kelipatan 8 px) */
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s5: 40px;
+
+  /* Bentuk & ukuran */
+  --radius: 8px;
+  --tap: 48px;             /* tinggi minimal tombol */
+  --content-max: 480px;    /* lebar isi di laptop */
+  --gutter: 16px;          /* jarak tepi layar HP */
+  --focus-ring: 3px solid var(--accent);
+}

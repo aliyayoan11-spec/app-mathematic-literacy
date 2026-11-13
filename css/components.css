@@ -1,0 +1,180 @@
+/* ---------- Kepala layar ---------- */
+.screen-head {
+  margin-bottom: var(--s3);
+}
+
+.screen-head p {
+  margin-top: var(--s1);
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+.app-name {
+  font-size: var(--fs-title);
+  font-weight: 700;
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: 0 var(--s3);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ---------- Formulir ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.field label {
+  font-weight: 600;
+}
+
+.field input {
+  min-height: var(--tap);
+  padding: 0 var(--s2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-size: var(--fs-body); /* ≥16 px agar iOS tidak memperbesar layar */
+}
+
+.field input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--err);
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+.field-error {
+  color: var(--err);
+  font-size: var(--fs-small);
+}
+
+.field-error:empty {
+  display: none;
+}
+
+/* ---------- Peta modul ---------- */
+.map-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.map-divider {
+  height: 1px;
+  margin: var(--s2) 0;
+  background: var(--border);
+}
+
+.map-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 64px;
+  padding: var(--s1) var(--s2);
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+}
+
+a.map-item:hover {
+  border-color: var(--border);
+}
+
+.map-item[data-status="sedang"] {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+
+.map-item[data-status="terkunci"] {
+  color: var(--muted);
+}
+
+.map-icon {
+  flex: 0 0 auto;
+  width: 24px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.map-item[data-status="selesai"] .map-icon {
+  color: var(--ok);
+}
+
+.map-item[data-status="sedang"] .map-icon {
+  color: var(--accent);
+}
+
+.map-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.map-title {
+  font-weight: 600;
+}
+
+.map-meta {
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+/* ---------- Pesan ---------- */
+.notice {
+  padding: var(--s2);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.notice > * + * {
+  margin-top: var(--s2);
+}
+
+.notice-error {
+  color: var(--err);
+}

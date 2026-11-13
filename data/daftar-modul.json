@@ -1,0 +1,10 @@
+{
+  "modul": [
+    { "id": "modul-0", "nomor": 0, "judul": "Ingat Lagi Pecahan", "file": "data/modul-0-pecahan.json", "perkiraanMenit": 10 },
+    { "id": "modul-1", "nomor": 1, "judul": "Percobaan & Ruang Sampel", "file": "data/modul-1-ruang-sampel.json", "perkiraanMenit": 15 },
+    { "id": "modul-2", "nomor": 2, "judul": "Ruang Sampel Dua Benda", "file": "data/modul-2-ruang-sampel-dua-benda.json", "perkiraanMenit": 20 },
+    { "id": "modul-3", "nomor": 3, "judul": "Peluang Teoretis", "file": "data/modul-3-peluang-teoretis.json", "perkiraanMenit": 20 },
+    { "id": "modul-4", "nomor": 4, "judul": "Peluang Empirik", "file": "data/modul-4-peluang-empirik.json", "perkiraanMenit": 15 },
+    { "id": "modul-5", "nomor": 5, "judul": "Frekuensi Harapan", "file": "data/modul-5-frekuensi-harapan.json", "perkiraanMenit": 15 }
+  ]
+}
