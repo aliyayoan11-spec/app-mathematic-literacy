@@ -3,7 +3,7 @@
 Centang `[x]` setiap tugas yang selesai. Kerjakan berurutan. Satu tahap selesai dan dicek di HP dulu, baru lanjut ke tahap berikutnya.
 
 ## Tahap 0 — Persiapan
-- [ ] Buat repo GitHub dan unggah semua dokumen perencanaan *(repo git lokal sudah dibuat + commit awal; tinggal buat repo di GitHub lalu push)*
+- [x] Buat repo GitHub dan unggah semua dokumen perencanaan
 - [x] Buat struktur folder sesuai `ARSITEKTUR.md`
 - [x] `index.html` kosong + `css/tokens.css` (warna & ukuran dari `DESAIN.md`)
 - [ ] Jalankan lokal dengan `python -m http.server 8000` *(Python belum terpasang di laptop ini; sudah diuji dengan server lokal pengganti)*
