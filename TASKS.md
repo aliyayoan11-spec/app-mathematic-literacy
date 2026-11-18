@@ -37,8 +37,12 @@ Backend boleh dikerjakan lebih dulu; tampilan chat setelah layar latihan (Tahap 
 - [x] `.gitignore` memuat `.env`; buat `.env.example` dan `package.json` (dotenv)
 - [x] `api/chat.js` + `api/_lib/validasi.js` + `api/_lib/prompt.js` (tanpa jawaban akhir, hint bertingkat, aturan beban kognitif)
 - [x] `dev-server.js` untuk menjalankan lokal dengan `.env`
-- [ ] Isi `TAHAPAN_RMT` di `api/_lib/prompt.js` dengan ringkasan RMT **versi dosen** (menunggu teks dari dosen)
-- [ ] Pasang Node.js, `npm install`, isi `.env`, uji `/api/chat` dengan key asli
+- [x] Isi `TAHAPAN_RMT` di `api/_lib/prompt.js` dari ringkasan RMT **versi dosen** (teks lengkap di `docs/rmt-ringkasan-dosen.md`)
+- [x] Aturan beban kognitif dari wawancara (PRD.md 1.2, DESAIN.md 1) + kesalahan umum hasil uji coba soal
+- [x] Pesan galat yang jelas per jenis kegagalan API (`api/_lib/galat.js`), diuji dengan DeepSeek tiruan
+- [x] Pasang Node.js, `npm install`, isi `.env`
+- [ ] Tunjukkan tabel tahapan RMT (ARSITEKTUR.md 8.1) ke dosen untuk persetujuan
+- [ ] **Setelah top up saldo DeepSeek:** uji `/api/chat` dengan key asli (siswa mendesak minta jawaban, menebak, mengaku guru, salah ruang sampel, salah frekuensi relatif, salah peluang bola)
 - [ ] Hubungkan repo ke Vercel + isi Environment Variables `DEEPSEEK_API_KEY`
 - [ ] Frontend: `js/chat-api.js` + panel "Tanya pembimbing" di layar latihan (tidak ada di mode tes)
 - [ ] Uji perilaku: chatbot tidak membocorkan jawaban akhir walau didesak; pesan singkat, satu pertanyaan

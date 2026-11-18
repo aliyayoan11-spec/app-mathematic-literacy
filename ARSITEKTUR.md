@@ -56,12 +56,14 @@ Frontend tetap **HTML + CSS + JavaScript biasa** (bukan React, tanpa build). npm
 │   ├── chat.js             # endpoint POST /api/chat → DeepSeek
 │   └── _lib/               # bukan endpoint (awalan _ diabaikan Vercel)
 │       ├── prompt.js       # prompt sistem: peran, RMT versi dosen, aturan beban kognitif
-│       └── validasi.js     # cek & rapikan isi permintaan dari frontend
+│       ├── validasi.js     # cek & rapikan isi permintaan dari frontend
+│       └── galat.js        # daftar galat: kode, pesan siswa, petunjuk pengembang
+├── docs/
+│   └── rmt-ringkasan-dosen.md  # teks lengkap ringkasan RMT dari dosen (rujukan prompt)
 ├── dev-server.js           # server lokal: file statis + /api/chat, membaca .env (dotenv)
 ├── package.json            # hanya untuk backend/lokal (dotenv)
 ├── .env.example            # contoh isian .env (tanpa key asli)
 ├── .env                    # KEY ASLI — tidak di-commit (ada di .gitignore)
-├── docs/                   # PRD.md, DESAIN.md, dst. (boleh juga di root)
 └── CLAUDE.md
 ```
 
@@ -238,7 +240,30 @@ Pengembangan lokal: pasang Node.js ≥ 18, jalankan `npm install`, salin `.env.e
 ## 8. Chatbot pembimbing (`/api/chat`)
 
 ### 8.1 Peran
-Pembimbing proses berpikir matematis untuk materi **Peluang kelas 8**, mengikuti tahapan **Rigorous Mathematical Thinking (RMT) versi dosen pengampu** (teks tahapan di `api/_lib/prompt.js`, bagian `TAHAPAN_RMT`). Chatbot **tidak pernah memberi jawaban akhir**.
+Pembimbing proses berpikir matematis untuk materi **Peluang kelas 8**, berperan sebagai mediator (MLE) yang mengikuti tahapan **Rigorous Mathematical Thinking (RMT) versi dosen pengampu**. Chatbot **tidak pernah memberi jawaban akhir**.
+
+Sumber prompt (`api/_lib/prompt.js`):
+- Tahapan RMT: diturunkan **hanya** dari ringkasan dosen, teks lengkap di `docs/rmt-ringkasan-dosen.md`.
+- Beban kognitif: hasil wawancara siswa, `PRD.md` 1.2 dan `DESAIN.md` 1.
+- Kesalahan umum: uji coba soal ke 2 siswa (`PRD.md` 1.1, `KONTEN.md` 4). Nama, kode, dan skor siswa **tidak** dimasukkan ke prompt.
+
+**Tahapan RMT di chatbot** (`TAHAPAN_RMT`):
+
+| Tahap | Dasar (ringkasan dosen) | Di soal Peluang |
+|---|---|---|
+| 1. Analisis tugas (Input) | Bab 3 analisis tugas; Bab 4 fase Input | Percobaannya apa, berapa benda, data apa, apa yang ditanya |
+| 2. Rencana dan pilih alat | Bab 3 perencanaan; Bab 1, 3 alat psikologis | Pilih daftar, diagram pohon, atau tabel 6×6 |
+| 3. Representasi dan manipulasi (Elaborasi) | Bab 4 Elaborasi (bagian-keseluruhan); Bab 6 | Susun S, hitung n(S) dan n(A) |
+| 4. Bahasa matematika (Output) | Bab 4 Output; Bab 1 bahasa matematika | Tulis P(A) = n(A)/n(S), jelaskan asal angka, tanpa coba-coba |
+| 5. Validasi dan refleksi | Bab 6 Validasi; Bab 3 refleksi; Bab 5 metakognisi | Cek 0 ≤ P(A) ≤ 1, refleksi strategi |
+
+Prinsip di semua tahap: mediasi MLE (satu pertanyaan lalu tunggu jawaban; transendensi; makna), diagnosis fase macet (Input/Elaborasi/Output), konsep sehari-hari → ilmiah, rigor.
+
+**Kesalahan umum yang diwaspadai** (dari uji coba):
+1. Ruang sampel/titik sampel (dua koin, dua dadu) adalah kesulitan terbesar → chatbot **wajib memastikan siswa menyusun ruang sampel dan n(S) sebelum menghitung peluang**.
+2. Frekuensi relatif: siswa membandingkan dua frekuensi, bukan frekuensi dengan banyak percobaan seluruhnya.
+3. Peluang bola: siswa membagi dengan banyak warna, bukan banyak semua bola.
+4. Sudah dikuasai: rentang 0 ≤ P(A) ≤ 1 dan peluang empirik → dipakai sebagai pegangan validasi, tidak dijelaskan ulang.
 
 ### 8.2 Aturan perilaku (ditanam di prompt sistem)
 | Aturan | Wujud |
@@ -266,7 +291,24 @@ Pembimbing proses berpikir matematis untuk materi **Peluang kelas 8**, mengikuti
   }
 }
 ```
-Jawaban berhasil: `200 { "balasan": "..." }`. Gagal: `{ "galat": "<pesan untuk siswa>" }` dengan status 400 (permintaan tidak valid), 405 (bukan POST), 500 (key belum diatur), atau 502 (DeepSeek gagal/terlalu lama).
+Jawaban berhasil: `200 { "balasan": "..." }`.
+Gagal: `{ "galat": "<pesan untuk siswa>", "kode": "<KODE>" }`. Frontend menampilkan `galat` apa adanya. Petunjuk teknis untuk pengembang hanya ditulis ke log (terminal `npm run dev` atau Vercel → Logs). Daftar lengkap di `api/_lib/galat.js`:
+
+| Kode | Status | Penyebab | Yang dilakukan pengembang |
+|---|---|---|---|
+| `KEY_BELUM_DIATUR` | 500 | `DEEPSEEK_API_KEY` kosong | Isi `.env` / Environment Variables Vercel, lalu Redeploy |
+| `KEY_TIDAK_VALID` | 502 | DeepSeek 401/403 | Periksa key (salah ketik, dihapus, akun lain) |
+| `SALDO_HABIS` | 502 | DeepSeek 402 | Top up saldo di platform.deepseek.com |
+| `PERMINTAAN_DITOLAK` | 502 | DeepSeek 400/422 | Periksa `DEEPSEEK_MODEL` dan format pesan |
+| `TERLALU_RAMAI` | 429 | DeepSeek 429 | Tunggu; kurangi frekuensi pesan |
+| `LAYANAN_GANGGUAN` | 502 | DeepSeek 5xx | Cek status.deepseek.com |
+| `WAKTU_HABIS` | 504 | > 25 detik tanpa jawaban | Coba lagi |
+| `TIDAK_TERHUBUNG` | 502 | Jaringan/DNS gagal | Cek koneksi server |
+| `BALASAN_KOSONG` | 502 | Balasan kosong/rusak | Coba lagi |
+| `PERMINTAAN_TIDAK_VALID` | 400 | Format dari frontend salah | Lihat pesan galat (mis. pesan terlalu panjang) |
+| `METODE_SALAH` | 405 | Bukan POST | — |
+
+Pesan untuk siswa tidak memuat istilah teknis dan selalu menyebut bahwa tombol Hint tetap bisa dipakai.
 
 Batas: maksimal 20 pesan per percakapan, 1000 karakter per pesan, 1000 karakter per teks konteks. Peran hanya `siswa` atau `pembimbing`; frontend tidak bisa mengirim prompt sistem.
 
