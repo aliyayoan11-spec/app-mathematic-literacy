@@ -1,0 +1,31 @@
+{
+  "petunjuk": "Bacalah setiap soal dengan teliti dan tuliskan langkah penyelesaian secara lengkap.",
+  "soal": [
+    {
+      "id": 1,
+      "judul": "Memilih Permainan di Bazar",
+      "teks": "Di sebuah bazar sekolah, terdapat dua jenis permainan berhadiah:\n\n1. **Permainan A (Lempar Dadu):** Pemain melempar satu buah dadu bermata 6. Pemain menang jika muncul mata dadu bilangan prima (2, 3, atau 5).\n2. **Permainan B (Lempar Koin):** Pemain melempar dua buah koin bersamaan. Pemain menang jika muncul minimal satu angka (A).\n\nBerdasarkan konsep peluang, manakah permainan yang memberikan peluang menang lebih besar bagi pemain? Tuliskan alasan matematis beserta perhitungan ruang sampel dan peluang masing-masing permainan!"
+    },
+    {
+      "id": 2,
+      "judul": "Hadiah Stan Dua Dadu",
+      "teks": "Sebuah stan bazar memberikan hadiah utama jika pengunjung berhasil melempar dua buah dadu secara bersamaan dan mendapatkan **jumlah mata dadu sama dengan 8** atau **selisih mata dadu sama dengan 2**.\n\na. Buatlah tabel ruang sampel atau daftar titik sampel yang memenuhi kedua kejadian tersebut.\nb. Hitunglah berapa peluang teoretis seorang pengunjung mendapatkan hadiah utama dari stan ini!"
+    },
+    {
+      "id": 3,
+      "judul": "Percobaan Pelemparan Dadu",
+      "teks": "Sekelompok siswa melakukan percobaan melempar sebuah dadu sebanyak 100 kali. Hasilnya dicatat dalam tabel di bawah ini.\n\na. Berdasarkan data empiris tersebut, berapakah frekuensi relatif munculnya mata dadu 5?\nb. Jika dadu tersebut dilempar sekali lagi secara acak, berapa taksiran peluang empiris akan muncul mata dadu yang lebih besar dari 4?",
+      "tabel": {
+        "kepala": ["Mata Dadu", "1", "2", "3", "4", "5", "6"],
+        "baris": [
+          ["Frekuensi Muncul", "12", "18", "15", "10", "20", "25"]
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "judul": "Pendapat Doni tentang Dua Koin",
+      "teks": "Doni melakukan pelemparan dua buah koin sebanyak 20 kali. Ia berpendapat: *\"Karena sisi Angka (A) dan Gambar (G) pada dua koin memiliki kemungkinan kombinasi (AA, AG, GA, GG), maka jika saya melempar 20 kali, pasti kemunculan kedua Angka (AA) akan tepat terjadi sebanyak 5 kali.\"*\n\nEvaluasilah pendapat Doni tersebut. Jelaskan apakah pernyataan Doni benar atau keliru ditinjau dari konsep peluang teoretis dibandingkan dengan hasil peluang empiris (kenyataan percobaan)!"
+    }
+  ]
+}

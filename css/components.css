@@ -458,3 +458,136 @@ mark.sorot {
 .notice .btn + .btn {
   margin-top: var(--s1);
 }
+
+/* ---------- Tombol tambahan ---------- */
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-bahaya {
+  background: var(--err);
+  color: var(--on-accent);
+}
+
+/* ---------- Kolom jawaban panjang ---------- */
+.field textarea {
+  min-height: 200px;
+  padding: var(--s1) var(--s2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font: inherit;
+  font-size: var(--fs-body);
+  line-height: var(--lh);
+  resize: vertical;
+}
+
+.field textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ---------- Layar tes ---------- */
+.test-name {
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
+
+.test-intro {
+  margin-bottom: var(--s2);
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+.notice-warn {
+  margin-bottom: var(--s2);
+  border-left: 4px solid var(--text);
+  background: var(--highlight);
+}
+
+.soal-tes {
+  margin-bottom: var(--s3);
+}
+
+.soal-tes h1 {
+  margin-bottom: var(--s2);
+}
+
+.soal-teks > * + * {
+  margin-top: var(--s1);
+}
+
+.tabel-wrap {
+  overflow-x: auto;
+}
+
+.tabel-soal {
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+
+.tabel-soal th,
+.tabel-soal td {
+  padding: var(--s1);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.tabel-soal th {
+  background: var(--surface);
+}
+
+.konfirmasi {
+  margin-top: var(--s3);
+  padding: var(--s2);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.konfirmasi > * + * {
+  margin-top: var(--s1);
+}
+
+.konfirmasi h2:focus {
+  outline: none;
+}
+
+.konfirmasi-aksi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s1);
+  padding-top: var(--s1);
+}
+
+.aksi-kirim > * + * {
+  margin-top: var(--s1);
+}
+
+/* ---------- Halaman peneliti ---------- */
+.panel-peneliti {
+  margin-bottom: var(--s3);
+  padding: var(--s2);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.panel-peneliti > * + * {
+  margin-top: var(--s2);
+}
+
+.daftar-info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s1) var(--s2);
+  margin: 0;
+  font-size: var(--fs-small);
+}
+
+.daftar-info dt {
+  font-weight: 600;
+}
+
+.daftar-info dd {
+  margin: 0;
+}

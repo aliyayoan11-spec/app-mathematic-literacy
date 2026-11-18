@@ -19,6 +19,15 @@ export async function muatDaftarModul() {
   return data.modul;
 }
 
+// Muat 4 soal pretest/posttest (instrumen penelitian, tanpa kunci jawaban).
+export async function muatTes() {
+  const data = await muatJSON('data/tes.json');
+  if (!Array.isArray(data.soal) || data.soal.length !== 4) {
+    throw new Error('data/tes.json harus berisi tepat 4 soal');
+  }
+  return data;
+}
+
 // Muat isi satu modul. meta = satu item dari daftar-modul.json.
 export async function muatModul(meta) {
   const data = await muatJSON(meta.file);

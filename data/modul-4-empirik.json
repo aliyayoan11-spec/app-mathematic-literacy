@@ -1,0 +1,10 @@
+{
+  "nomor": 4,
+  "judul": "Peluang Empirik",
+  "langkah": [
+    {
+      "judul": "Apa itu Peluang Empirik?",
+      "teks": "**Peluang empirik** (peluang eksperimen) adalah peluang suatu kejadian berdasarkan hasil kenyataan percobaan (data riil) yang telah dilakukan, bukan berdasarkan teori.\n\nRumus Peluang Empirik:\n$$P(A) = \\frac{\\text{Banyaknya muncul kejadian A}}{\\text{Total seluruh percobaan}}$$"
+    }
+  ]
+}

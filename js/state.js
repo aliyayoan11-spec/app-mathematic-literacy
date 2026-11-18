@@ -68,6 +68,16 @@ export function simpanSiswa(kode, kelas) {
   });
 }
 
+// Hapus seluruh progres di perangkat ini (dipakai halaman peneliti).
+export function hapusState() {
+  cadangan = null;
+  try {
+    localStorage.removeItem(KUNCI);
+  } catch (e) {
+    console.warn('Progres tidak bisa dihapus dari localStorage.', e);
+  }
+}
+
 export function sudahMasuk() {
   return Boolean(bacaState().siswa);
 }

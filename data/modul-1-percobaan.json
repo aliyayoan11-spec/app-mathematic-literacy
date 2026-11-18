@@ -1,0 +1,14 @@
+{
+  "nomor": 1,
+  "judul": "Percobaan & Ruang Sampel",
+  "langkah": [
+    {
+      "judul": "Apa itu Percobaan dalam Peluang?",
+      "teks": "Dalam matematika, **percobaan** adalah suatu kegiatan atau proses yang dapat menghasilkan beberapa kemungkinan hasil (kejadian).\n\nContohnya:\n- Melempar uang logam\n- Melempar dadu\n- Mengambil kartu secara acak\n\nSetiap hasil yang mungkin terjadi dari sebuah percobaan disebut sebagai **titik sampel**, sedangkan seluruh kumpulan titik sampel yang mungkin dari suatu percobaan disebut **ruang sampel (S)**."
+    },
+    {
+      "judul": "Contoh Ruang Sampel Dadu",
+      "teks": "Jika kita melempar sebuah dadu bermata enam, maka kemungkinan hasil yang muncul adalah angka 1, 2, 3, 4, 5, atau 6.\n\n- **Ruang Sampel (S)** = {1, 2, 3, 4, 5, 6}\n- **Banyaknya titik sampel n(S)** = 6"
+    }
+  ]
+}

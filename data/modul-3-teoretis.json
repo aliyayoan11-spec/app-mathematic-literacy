@@ -1,0 +1,10 @@
+{
+  "nomor": 3,
+  "judul": "Peluang Teoretis",
+  "langkah": [
+    {
+      "judul": "Konsep Peluang Teoretis",
+      "teks": "**Peluang teoretis** adalah perbandingan antara jumlah kejadian yang diharapkan (titik sampel) dengan seluruh kejadian yang mungkin pada suatu ruang sampel dengan asumsi setiap kejadian memiliki kesempatan yang sama.\n\nRumus Peluang Suatu Kejadian A:\n$$P(A) = \\frac{n(A)}{n(S)}$$\n\nKeterangan:\n- $n(A)$ = Banyaknya anggota kejadian A\n- $n(S)$ = Banyaknya seluruh titik sampel dalam ruang sampel"
+    }
+  ]
+}

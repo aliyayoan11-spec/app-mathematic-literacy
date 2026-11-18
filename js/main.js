@@ -6,8 +6,9 @@ import { muatDaftarModul } from './content.js';
 import { fokusJudul } from './dom.js';
 import * as login from './screens/login.js';
 import * as moduleMap from './screens/module-map.js';
-import * as belumTersedia from './screens/belum-tersedia.js';
 import * as step from './screens/step.js';
+import * as test from './screens/test.js';
+import * as peneliti from './screens/peneliti.js';
 
 const app = document.getElementById('app');
 
@@ -39,18 +40,29 @@ const rute = [
     },
   },
   {
-    pola: /^#\/tes\/(pre|post)\/([1-4])$/,
-    buka: async ([jenis], state) => {
+    // Soal 1–4, atau halaman "selesai" setelah jawaban dikirim.
+    pola: /^#\/tes\/(pre|post)\/([1-4]|selesai)$/,
+    buka: async ([jenis, nomor], state) => {
       if (jenis === 'post') {
         const daftar = await muatDaftarModul();
         if (statusPosttest(daftar, state) === 'terkunci') return { alihkan: '#/modul' };
       }
-      return { layar: belumTersedia, data: { judul: jenis === 'pre' ? 'Pretest' : 'Posttest' } };
+      const sudahDikirim = Boolean(state.tes[jenis]?.selesai);
+      // Tes yang sudah dikirim tidak bisa dibuka/diubah lagi.
+      if (sudahDikirim && nomor !== 'selesai') return { alihkan: `#/tes/${jenis}/selesai` };
+      if (!sudahDikirim && nomor === 'selesai') return { alihkan: `#/tes/${jenis}/1` };
+      return { layar: test, data: { jenis, nomor } };
     },
   },
   {
     pola: /^#\/selesai$/,
-    buka: () => ({ layar: belumTersedia, data: { judul: 'Selesai' } }),
+    buka: (_, state) => ({ alihkan: state.tes.post?.selesai ? '#/tes/post/selesai' : '#/modul' }),
+  },
+  {
+    // Halaman peneliti: tersembunyi, tidak ditautkan di aplikasi.
+    pola: /^#\/peneliti$/,
+    publik: true,
+    buka: () => ({ layar: peneliti }),
   },
 ];
 

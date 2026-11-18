@@ -1,0 +1,10 @@
+{
+  "nomor": 5,
+  "judul": "Frekuensi Harapan",
+  "langkah": [
+    {
+      "judul": "Menghitung Frekuensi Harapan",
+      "teks": "**Frekuensi harapan** $F_h$ adalah banyaknya kemunculan suatu kejadian yang diharapkan dari sejumlah total percobaan yang dilakukan.\n\nRumus:\n$$F_h = P(A) \\times \\text{Jumlah Percobaan}$$"
+    }
+  ]
+}
