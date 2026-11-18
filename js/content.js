@@ -18,3 +18,12 @@ export async function muatDaftarModul() {
   const data = await muatJSON('data/daftar-modul.json');
   return data.modul;
 }
+
+// Muat isi satu modul. meta = satu item dari daftar-modul.json.
+export async function muatModul(meta) {
+  const data = await muatJSON(meta.file);
+  if (!Array.isArray(data.langkah) || data.langkah.length === 0) {
+    throw new Error(`${meta.file} tidak berisi langkah`);
+  }
+  return data;
+}

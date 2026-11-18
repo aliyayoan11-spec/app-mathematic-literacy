@@ -12,6 +12,15 @@
   --ok: #15803D;           /* status benar / selesai */
   --err: #B91C1C;          /* status belum tepat / galat */
   --highlight: #FEF3C7;    /* sorotan angka yang baru muncul */
+  --accent-soft: #DBEAFE;  /* arsiran bagian pecahan (turunan warna aksen) */
+
+  /* Warna benda di visual (hanya untuk membedakan, mis. bola biru vs merah) */
+  --bola-biru: #1D4ED8;
+  --bola-merah: #DC2626;
+  --bola-hijau: #16A34A;
+  --bola-kuning: #EAB308;
+  --bola-putih: #FFFFFF;
+  --bola-hitam: #111827;
 
   /* Tipografi */
   --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;

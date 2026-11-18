@@ -1,0 +1,84 @@
+{
+  "id": "modul-2",
+  "judul": "Ruang Sampel Dua Benda",
+  "status": "draf — latihan, tabel 6×6, dan pohon interaktif ditambah pada Tahap 3–5",
+  "tujuan": "Menentukan ruang sampel dua koin dan titik sampel dua dadu.",
+  "prasyarat": ["modul-1"],
+  "langkah": [
+    {
+      "tipe": "penjelasan",
+      "judul": "Dua koin dilempar",
+      "visual": { "jenis": "koin", "jumlah": 2 },
+      "teks": "Dua koin dilempar bersamaan. Koin pertama bisa muncul A (Angka) atau G (Gambar). Koin kedua juga bisa A atau G."
+    },
+    {
+      "tipe": "contoh",
+      "judul": "Ruang sampel dua koin",
+      "visual": { "jenis": "koin", "jumlah": 2 },
+      "tahap": [
+        {
+          "visual": [
+            { "jenis": "koin", "sisi": ["A", "A"], "label": false, "keterangan": "AA" },
+            { "jenis": "koin", "sisi": ["A", "G"], "label": false, "keterangan": "AG" }
+          ],
+          "teks": "Jika koin pertama A, koin kedua bisa A atau G. Hasilnya ==AA== dan ==AG==."
+        },
+        {
+          "visual": [
+            { "jenis": "koin", "sisi": ["G", "A"], "label": false, "keterangan": "GA" },
+            { "jenis": "koin", "sisi": ["G", "G"], "label": false, "keterangan": "GG" }
+          ],
+          "teks": "Jika koin pertama G, koin kedua bisa A atau G. Hasilnya ==GA== dan ==GG==."
+        },
+        { "teks": "Kumpulkan semuanya: S = {AA, AG, GA, GG}. Ada 4 hasil, jadi n(S) = ==4==." }
+      ]
+    },
+    {
+      "tipe": "penjelasan",
+      "judul": "AG dan GA berbeda",
+      "visual": [
+        { "jenis": "koin", "sisi": ["A", "G"], "label": false, "keterangan": "AG" },
+        { "jenis": "koin", "sisi": ["G", "A"], "label": false, "keterangan": "GA" }
+      ],
+      "teks": "Pada AG, koin 1 = A dan koin 2 = G. Pada GA, koin 1 = G dan koin 2 = A. Jadi AG dan GA **berbeda**, keduanya dihitung."
+    },
+    {
+      "tipe": "penjelasan",
+      "judul": "Aturan perkalian",
+      "visual": { "jenis": "koin", "jumlah": 2 },
+      "teks": "Koin 1 punya ==2== hasil (A, G). Koin 2 juga punya ==2== hasil. Banyak titik sampel = 2 × 2 = ==4==."
+    },
+    {
+      "tipe": "penjelasan",
+      "judul": "Satu dadu",
+      "visual": { "jenis": "dadu", "mata": [1, 2, 3, 4, 5, 6], "label": false },
+      "teks": "Satu dadu punya 6 mata: 1, 2, 3, 4, 5, 6. Jadi n(S) satu dadu = ==6==."
+    },
+    {
+      "tipe": "contoh",
+      "judul": "Titik sampel dua dadu",
+      "visual": { "jenis": "dadu", "jumlah": 2 },
+      "tahap": [
+        { "teks": "Dadu 1 punya ==6== mata. Dadu 2 juga punya ==6== mata." },
+        {
+          "visual": [
+            { "jenis": "dadu", "mata": [1, 1], "label": false, "keterangan": "(1, 1)" },
+            { "jenis": "dadu", "mata": [1, 2], "label": false, "keterangan": "(1, 2)" }
+          ],
+          "teks": "Mata 1 pada dadu 1 bisa berpasangan dengan 6 mata dadu 2: (1, 1), (1, 2), … , (1, 6). Itu ==6== pasangan."
+        },
+        { "teks": "Begitu juga mata 2, 3, 4, 5, dan 6. Ada 6 baris, tiap baris 6 pasangan." },
+        { "teks": "Banyak titik sampel = 6 × 6 = ==36==." }
+      ]
+    },
+    {
+      "tipe": "ringkasan",
+      "poin": [
+        "Dua koin: S = {AA, AG, GA, GG}, n(S) = 4.",
+        "AG dan GA berbeda karena urutan koinnya berbeda.",
+        "Banyak titik sampel dua benda = banyak hasil benda 1 × banyak hasil benda 2.",
+        "Dua dadu: 6 × 6 = 36 titik sampel."
+      ]
+    }
+  ]
+}

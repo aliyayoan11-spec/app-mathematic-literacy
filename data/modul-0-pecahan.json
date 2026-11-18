@@ -1,0 +1,71 @@
+{
+  "id": "modul-0",
+  "judul": "Ingat Lagi Pecahan",
+  "status": "draf — dilengkapi latihan pada Tahap 5",
+  "tujuan": "Menyederhanakan pecahan, membandingkan pecahan, dan mengubah pecahan ke desimal.",
+  "prasyarat": [],
+  "langkah": [
+    {
+      "tipe": "penjelasan",
+      "judul": "Pecahan itu bagian",
+      "visual": { "jenis": "batang", "atas": 3, "bawah": 4 },
+      "teks": "Batang ini dibagi 4 bagian sama besar. Ada 3 bagian yang diarsir. Jadi bagian yang diarsir adalah {3/4}."
+    },
+    {
+      "tipe": "penjelasan",
+      "judul": "Pembilang dan penyebut",
+      "visual": { "jenis": "batang", "atas": 3, "bawah": 4 },
+      "teks": [
+        "Angka atas disebut **pembilang**: banyak bagian yang diambil, yaitu 3.",
+        "Angka bawah disebut **penyebut**: banyak seluruh bagian, yaitu 4."
+      ]
+    },
+    {
+      "tipe": "contoh",
+      "judul": "Menyederhanakan {6/8}",
+      "visual": { "jenis": "batang", "atas": 6, "bawah": 8 },
+      "tahap": [
+        { "teks": "Cari bilangan yang bisa membagi 6 dan juga 8. Keduanya bisa dibagi ==2==." },
+        { "teks": "Pembilang: 6 : 2 = ==3==. Penyebut: 8 : 2 = ==4==." },
+        {
+          "visual": { "jenis": "batang", "atas": 3, "bawah": 4 },
+          "teks": "Jadi {6/8} → dibagi 2 → =={3/4}==. Panjang arsirannya tetap sama, hanya bagiannya lebih besar."
+        }
+      ]
+    },
+    {
+      "tipe": "contoh",
+      "judul": "Mana lebih besar, {1/2} atau {3/5}?",
+      "tahap": [
+        { "teks": "Samakan dulu penyebutnya. Penyebut 2 dan 5 sama-sama bisa menjadi 2 × 5 = ==10==." },
+        { "teks": "{1/2} = {1 × 5/2 × 5} = =={5/10}==" },
+        { "teks": "{3/5} = {3 × 2/5 × 2} = =={6/10}==" },
+        {
+          "visual": [
+            { "jenis": "batang", "atas": 5, "bawah": 10, "keterangan": "{5/10}" },
+            { "jenis": "batang", "atas": 6, "bawah": 10, "keterangan": "{6/10}" }
+          ],
+          "teks": "6 bagian lebih banyak dari 5 bagian. Jadi =={3/5} lebih besar dari {1/2}==."
+        }
+      ]
+    },
+    {
+      "tipe": "contoh",
+      "judul": "Mengubah {3/4} ke desimal",
+      "tahap": [
+        { "teks": "Ubah penyebutnya menjadi 100. Karena 4 × 25 = 100, kalikan dengan ==25==." },
+        { "teks": "{3/4} = {3 × 25/4 × 25} = =={75/100}==" },
+        { "teks": "{75/100} dibaca 75 perseratus, ditulis ==0,75==." }
+      ]
+    },
+    {
+      "tipe": "ringkasan",
+      "poin": [
+        "Pembilang = bagian yang diambil. Penyebut = seluruh bagian.",
+        "Menyederhanakan: bagi pembilang dan penyebut dengan bilangan yang sama.",
+        "Membandingkan: samakan penyebut, lalu bandingkan pembilangnya.",
+        "Ke desimal: ubah penyebut menjadi 10, 100, atau 1000."
+      ]
+    }
+  ]
+}

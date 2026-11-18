@@ -7,6 +7,7 @@ import { fokusJudul } from './dom.js';
 import * as login from './screens/login.js';
 import * as moduleMap from './screens/module-map.js';
 import * as belumTersedia from './screens/belum-tersedia.js';
+import * as step from './screens/step.js';
 
 const app = document.getElementById('app');
 
@@ -28,13 +29,13 @@ const rute = [
   },
   {
     pola: /^#\/modul\/(\d+)\/langkah\/(\d+)$/,
-    buka: async ([nomor], state) => {
+    buka: async ([nomor, k], state) => {
       const daftar = await muatDaftarModul();
       const modul = daftar.find((m) => m.nomor === Number(nomor));
       if (!modul || statusModul(daftar, state)[modul.id] === 'terkunci') {
         return { alihkan: '#/modul' };
       }
-      return { layar: belumTersedia, data: { judul: `Modul ${modul.nomor} · ${modul.judul}` } };
+      return { layar: step, data: { nomor: modul.nomor, k: Number(k) } };
     },
   },
   {
