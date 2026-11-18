@@ -46,7 +46,16 @@ async function bacaBody(req) {
   return JSON.parse(teks || 'null');
 }
 
-// Ambil pesan galat dari DeepSeek untuk log (dipotong; tidak memuat API key).
+// Pesan galat DeepSeek kadang menyebut potongan key (mis. "Your api key: ****ab12").
+// Samarkan semua yang mirip key sebelum ditulis ke log.
+export function samarkanKey(teks) {
+  return String(teks)
+    .replace(/(api[\s_-]*key\s*[:=]?\s*)\S+/gi, '$1[disamarkan]')
+    .replace(/sk-[A-Za-z0-9_-]+/g, 'sk-[disamarkan]')
+    .replace(/\*{2,}[A-Za-z0-9]+/g, '[disamarkan]');
+}
+
+// Ambil pesan galat dari DeepSeek untuk log (dipotong, potongan key disamarkan).
 async function ringkasGalatDeepSeek(jawab) {
   try {
     const teks = await jawab.text();
@@ -56,7 +65,7 @@ async function ringkasGalatDeepSeek(jawab) {
     } catch {
       // bukan JSON, pakai teks mentah
     }
-    return `status ${jawab.status}: ${String(pesan).slice(0, 200)}`;
+    return `status ${jawab.status}: ${samarkanKey(String(pesan).slice(0, 200))}`;
   } catch {
     return `status ${jawab.status}`;
   }

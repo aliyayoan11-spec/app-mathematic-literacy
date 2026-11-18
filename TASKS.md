@@ -42,7 +42,8 @@ Backend boleh dikerjakan lebih dulu; tampilan chat setelah layar latihan (Tahap 
 - [x] Pesan galat yang jelas per jenis kegagalan API (`api/_lib/galat.js`), diuji dengan DeepSeek tiruan
 - [x] Pasang Node.js, `npm install`, isi `.env`
 - [ ] Tunjukkan tabel tahapan RMT (ARSITEKTUR.md 8.1) ke dosen untuk persetujuan
-- [ ] **Setelah top up saldo DeepSeek:** uji `/api/chat` dengan key asli (siswa mendesak minta jawaban, menebak, mengaku guru, salah ruang sampel, salah frekuensi relatif, salah peluang bola)
+- [x] Integrasi DeepSeek tersambung (uji lokal 18 Nov 2026): key diterima DeepSeek; galat 402 "saldo tidak cukup" ditangani dengan pesan ramah untuk siswa; potongan key di pesan galat DeepSeek disamarkan di log
+- [ ] **Menunggu saldo DeepSeek diisi:** uji percakapan langsung, 8 skenario (siswa mendesak minta jawaban, menebak, mengaku guru, ruang sampel dua koin AG = GA, langsung hitung peluang tanpa ruang sampel, dua dadu 6 + 6, frekuensi relatif 28/22, peluang bola dibagi banyak warna). Perilaku chatbot dengan DeepSeek sungguhan **belum pernah diuji**
 - [ ] Hubungkan repo ke Vercel + isi Environment Variables `DEEPSEEK_API_KEY`
 - [ ] Frontend: `js/chat-api.js` + panel "Tanya pembimbing" di layar latihan (tidak ada di mode tes)
 - [ ] Uji perilaku: chatbot tidak membocorkan jawaban akhir walau didesak; pesan singkat, satu pertanyaan

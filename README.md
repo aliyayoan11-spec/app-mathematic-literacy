@@ -21,4 +21,11 @@ Aplikasi web (mobile-first, bisa dibuka di smartphone dan browser laptop) untuk 
 
 ## Status
 
-Tahap **Development** (ADDIE). Kerangka aplikasi (Tahap 0–1 di `TASKS.md`) sudah dibuat: layar Masuk dan Peta Modul.
+Tahap **Development** (ADDIE).
+
+- Kerangka aplikasi (Tahap 0–1) dan mesin materi (Tahap 2) sudah dibuat: layar Masuk, Peta Modul, dan layar langkah materi.
+- Backend chatbot pembimbing `/api/chat` (Tahap C) sudah dibuat dengan tahapan RMT versi dosen. Integrasi DeepSeek sudah tersambung: key diterima, dan galat saldo habis (402) ditampilkan ke siswa sebagai pesan ramah.
+- **Uji percakapan langsung dengan DeepSeek menunggu saldo diisi.** Sampai saat itu, perilaku chatbot baru diuji dengan DeepSeek tiruan.
+- Tampilan chat di aplikasi belum dibuat (menunggu layar latihan, Tahap 3).
+
+Detail per tugas ada di `TASKS.md`.
