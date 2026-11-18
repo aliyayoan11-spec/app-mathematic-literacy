@@ -1,3 +1,12 @@
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Rahasia — JANGAN di-commit
+.env
+.env.*
+!.env.example
+
+# Node / Vercel
+node_modules/
+.vercel/

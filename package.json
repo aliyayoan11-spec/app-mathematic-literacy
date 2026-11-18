@@ -1,0 +1,15 @@
+{
+  "name": "peluangku",
+  "private": true,
+  "description": "PeluangKu — frontend HTML/JS statis + serverless function /api/chat (Vercel)",
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "dotenv": "16.4.5"
+  }
+}

@@ -16,12 +16,12 @@ Centang `[x]` setiap tugas yang selesai. Kerjakan berurutan. Satu tahap selesai 
 - [x] Cek tampilan di lebar 360 px
 
 ## Tahap 2 — Mesin materi
-- [ ] Pemuat JSON modul
-- [ ] Layar Langkah: tipe `penjelasan` (visual di atas, teks di bawah, Kembali/Lanjut, progres)
-- [ ] Tipe `contoh`: tahap muncul satu per satu
-- [ ] Komponen pecahan (`fraction.js`)
-- [ ] Komponen visual SVG: koin, dadu, bola (`visuals.js`)
-- [ ] Sorotan untuk angka yang baru muncul
+- [x] Pemuat JSON modul
+- [x] Layar Langkah: tipe `penjelasan` (visual di atas, teks di bawah, Kembali/Lanjut, progres)
+- [x] Tipe `contoh`: tahap muncul satu per satu
+- [x] Komponen pecahan (`fraction.js`)
+- [x] Komponen visual SVG: koin, dadu, bola (`visuals.js`) — ditambah batang pecahan
+- [x] Sorotan untuk angka yang baru muncul
 
 ## Tahap 3 — Latihan interaktif
 - [ ] Layar Latihan: kotak soal sticky + kolom jawaban per tahap
@@ -30,6 +30,19 @@ Centang `[x]` setiap tugas yang selesai. Kerjakan berurutan. Satu tahap selesai 
 - [ ] Panel hint 3 level + pencatatan hint dipakai
 - [ ] Pertanyaan cek ulang
 - [ ] Tombol "Lihat pembahasan" setelah 3× salah
+
+## Tahap C — Chatbot pembimbing (RMT, DeepSeek via Vercel)
+Backend boleh dikerjakan lebih dulu; tampilan chat setelah layar latihan (Tahap 3) jadi.
+- [x] Perbarui `CLAUDE.md` dan `ARSITEKTUR.md` (backend, API key, privasi, aturan chatbot)
+- [x] `.gitignore` memuat `.env`; buat `.env.example` dan `package.json` (dotenv)
+- [x] `api/chat.js` + `api/_lib/validasi.js` + `api/_lib/prompt.js` (tanpa jawaban akhir, hint bertingkat, aturan beban kognitif)
+- [x] `dev-server.js` untuk menjalankan lokal dengan `.env`
+- [ ] Isi `TAHAPAN_RMT` di `api/_lib/prompt.js` dengan ringkasan RMT **versi dosen** (menunggu teks dari dosen)
+- [ ] Pasang Node.js, `npm install`, isi `.env`, uji `/api/chat` dengan key asli
+- [ ] Hubungkan repo ke Vercel + isi Environment Variables `DEEPSEEK_API_KEY`
+- [ ] Frontend: `js/chat-api.js` + panel "Tanya pembimbing" di layar latihan (tidak ada di mode tes)
+- [ ] Uji perilaku: chatbot tidak membocorkan jawaban akhir walau didesak; pesan singkat, satu pertanyaan
+- [ ] Perbarui `PRD.md` (chat saat ini tertulis "di luar cakupan") setelah disetujui dosen
 
 ## Tahap 4 — Komponen khusus Peluang
 - [ ] Penyusun ruang sampel dua koin (daftar/pohon interaktif)
@@ -51,6 +64,6 @@ Centang `[x]` setiap tugas yang selesai. Kerjakan berurutan. Satu tahap selesai 
 ## Tahap 7 — Penyelesaian
 - [ ] Uji di HP Android & iPhone/Safari (kalau ada) dan laptop
 - [ ] Cek kontras warna & ukuran tombol
-- [ ] Deploy ke GitHub Pages, buat QR code link
+- [ ] Deploy ke Vercel (repo GitHub yang sama), matikan GitHub Pages lama, buat QR code link
 - [ ] Uji coba kecil (1–2 orang), catat masukan, revisi
 - [ ] Siap untuk validasi ahli materi & media

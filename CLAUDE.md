@@ -16,11 +16,14 @@ Sebelum mengerjakan fitur apa pun, baca dokumen terkait:
 
 ## 2. Teknologi (jangan diganti tanpa izin)
 
-- **HTML + CSS + JavaScript murni (ES modules)**. Tanpa framework, tanpa build step, tanpa npm.
+- **Frontend: HTML + CSS + JavaScript murni (ES modules)**. Tanpa framework, tanpa build step, tanpa npm di frontend.
 - Konten materi disimpan sebagai **file JSON** di `data/`.
 - Penyimpanan progres: **localStorage** browser.
 - Pengiriman hasil tes: **Google Apps Script Web App** → Google Sheets (URL di `js/config.js`).
-- Hosting: **GitHub Pages**.
+- **Backend: satu serverless function Vercel `/api/chat`** (Node.js ≥ 18, file di `api/`) untuk chatbot pembimbing. Backend memanggil DeepSeek; frontend **tidak pernah** memanggil DeepSeek langsung.
+- **API key** hanya di `.env` (lokal, dibaca dengan `dotenv`) dan di **Environment Variables Vercel** (online). Jangan pernah menulis API key di frontend, di kode, atau meng-commit `.env`. Contoh isian ada di `.env.example`.
+- npm hanya untuk kebutuhan backend/pengembangan lokal (`dotenv`). Frontend tetap tanpa npm.
+- Hosting: **Vercel**, terhubung ke repo GitHub yang sama.
 - Jangan menambah library eksternal. Kalau benar-benar perlu, tanyakan dulu dan jelaskan alasannya.
 
 ## 3. Aturan desain WAJIB (turunan dari hasil wawancara siswa)
@@ -52,10 +55,12 @@ Aturan ini adalah inti penelitian. Jangan dilanggar demi "kelihatan lebih keren"
 
 - Siswa masuk memakai **kode siswa** (misal `S01`) dan kelas, bukan nama lengkap.
 - Jangan mengirim data apa pun selain yang tercantum di `ARSITEKTUR.md` bagian "Data yang dikirim".
+- Ke chatbot (DeepSeek) hanya dikirim **isi percakapan dan teks soal latihan yang sedang dikerjakan**. Kode siswa, kelas, dan data tes tidak pernah dikirim.
 
 ## 6. Cara menjalankan & mengecek
 
-- Jalankan lokal: `python -m http.server 8000` di folder root, lalu buka `http://localhost:8000`. (File harus lewat server karena memakai `fetch` JSON dan ES modules.)
+- Jalankan lokal **dengan chatbot**: `npm install` (sekali saja), isi `.env` dari `.env.example`, lalu `npm run dev` dan buka `http://localhost:8000`.
+- Jalankan lokal **tanpa chatbot**: `python -m http.server 8000` di folder root, lalu buka `http://localhost:8000`. (File harus lewat server karena memakai `fetch` JSON dan ES modules.)
 - Setiap selesai fitur, cek di lebar layar **360 px** (DevTools → mode perangkat) dan di laptop.
 - Cek konsol browser: tidak boleh ada error.
 - Validasi angka di konten: setiap jawaban kunci di `data/` harus benar secara matematis (hitung ulang).
@@ -63,6 +68,7 @@ Aturan ini adalah inti penelitian. Jangan dilanggar demi "kelihatan lebih keren"
 ## 7. Yang TIDAK boleh dilakukan
 
 - Menampilkan kunci jawaban pretest/posttest di aplikasi.
-- Memberi hint, contoh, atau umpan balik di **mode tes** (pretest/posttest harus murni).
+- Memberi hint, contoh, umpan balik, atau **chatbot** di **mode tes** (pretest/posttest harus murni).
+- Membuat chatbot memberi jawaban akhir latihan. Chatbot hanya membimbing proses berpikir (aturannya di `ARSITEKTUR.md` bagian Chatbot).
 - Menambah gamifikasi berlebihan (poin berkedip, konfeti, suara) yang menambah *extraneous load*.
 - Mengubah 4 soal tes di `data/tes.json` tanpa persetujuan (instrumen penelitian).
